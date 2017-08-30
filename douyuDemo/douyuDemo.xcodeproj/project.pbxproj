@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B6304181F56C00E00E426D7 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6304171F56C00E00E426D7 /* CustomTabBarItem.swift */; };
 		1BA0E08B1F5689F600126085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0E08A1F5689F600126085 /* AppDelegate.swift */; };
-		1BA0E08D1F5689F600126085 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0E08C1F5689F600126085 /* ViewController.swift */; };
+		1BA0E08D1F5689F600126085 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0E08C1F5689F600126085 /* MainViewController.swift */; };
 		1BA0E0921F5689F600126085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0911F5689F600126085 /* Assets.xcassets */; };
 		1BA0E0951F5689F600126085 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0931F5689F600126085 /* LaunchScreen.storyboard */; };
 		1BA0E0BA1F56967700126085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0B81F56967700126085 /* Main.storyboard */; };
@@ -40,7 +40,7 @@
 		1B6304171F56C00E00E426D7 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
 		1BA0E0871F5689F600126085 /* douyuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = douyuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA0E08A1F5689F600126085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1BA0E08C1F5689F600126085 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1BA0E08C1F5689F600126085 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../../MainViewController.swift; sourceTree = "<group>"; };
 		1BA0E0911F5689F600126085 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BA0E0941F5689F600126085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BA0E0961F5689F600126085 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,7 +110,6 @@
 			children = (
 				1BA0E0BE1F569D3300126085 /* Classes */,
 				1BA0E08A1F5689F600126085 /* AppDelegate.swift */,
-				1BA0E08C1F5689F600126085 /* ViewController.swift */,
 				1BA0E0911F5689F600126085 /* Assets.xcassets */,
 				1BA0E0931F5689F600126085 /* LaunchScreen.storyboard */,
 				1BA0E0961F5689F600126085 /* Info.plist */,
@@ -162,6 +161,7 @@
 		1BA0E0C21F56A4B200126085 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1BA0E08C1F5689F600126085 /* MainViewController.swift */,
 				1BA0E0B81F56967700126085 /* Main.storyboard */,
 			);
 			name = Main;
@@ -318,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BA0E08D1F5689F600126085 /* ViewController.swift in Sources */,
+				1BA0E08D1F5689F600126085 /* MainViewController.swift in Sources */,
 				1B6304181F56C00E00E426D7 /* CustomTabBarItem.swift in Sources */,
 				1BA0E08B1F5689F600126085 /* AppDelegate.swift in Sources */,
 			);
@@ -473,7 +473,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RU6PN5PBNX;
 				INFOPLIST_FILE = douyuDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tps.douyuDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -487,7 +487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RU6PN5PBNX;
 				INFOPLIST_FILE = douyuDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tps.douyuDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
