@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B5DE96A1F57E091008D2799 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DE9671F57E091008D2799 /* HomeViewController.swift */; };
+		1B5DE96C1F57E1E3008D2799 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5DE96B1F57E1E3008D2799 /* Home.storyboard */; };
+		1B5DE9701F57FEFF008D2799 /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DE96F1F57FEFF008D2799 /* UIBarButtonItem.swift */; };
 		1B6304181F56C00E00E426D7 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6304171F56C00E00E426D7 /* CustomTabBarItem.swift */; };
 		1BA0E08B1F5689F600126085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0E08A1F5689F600126085 /* AppDelegate.swift */; };
 		1BA0E08D1F5689F600126085 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0E08C1F5689F600126085 /* MainViewController.swift */; };
 		1BA0E0921F5689F600126085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0911F5689F600126085 /* Assets.xcassets */; };
 		1BA0E0951F5689F600126085 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0931F5689F600126085 /* LaunchScreen.storyboard */; };
 		1BA0E0BA1F56967700126085 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0B81F56967700126085 /* Main.storyboard */; };
-		1BA0E0C51F56B52100126085 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0C41F56B52100126085 /* Home.storyboard */; };
 		1BA0E0C71F56B54E00126085 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0C61F56B54E00126085 /* Live.storyboard */; };
 		1BA0E0C91F56B57300126085 /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0C81F56B57300126085 /* Follow.storyboard */; };
 		1BA0E0CB1F56B5A700126085 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0CA1F56B5A700126085 /* Profile.storyboard */; };
@@ -37,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B5DE9671F57E091008D2799 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1B5DE96B1F57E1E3008D2799 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		1B5DE96F1F57FEFF008D2799 /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		1B6304171F56C00E00E426D7 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
 		1BA0E0871F5689F600126085 /* douyuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = douyuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA0E08A1F5689F600126085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +52,6 @@
 		1BA0E09B1F5689F600126085 /* douyuDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = douyuDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA0E0A61F5689F600126085 /* douyuDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = douyuDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA0E0B91F56967700126085 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1BA0E0C41F56B52100126085 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1BA0E0C61F56B54E00126085 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		1BA0E0C81F56B57300126085 /* Follow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Follow.storyboard; sourceTree = "<group>"; };
 		1BA0E0CA1F56B5A700126085 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -78,9 +82,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B5DE9661F57E091008D2799 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1B5DE96B1F57E1E3008D2799 /* Home.storyboard */,
+				1B5DE9671F57E091008D2799 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1B5DE9681F57E091008D2799 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B5DE9691F57E091008D2799 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1B5DE96D1F57F5B3008D2799 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tools;
+			path = ../Classes/Profile/Tools;
+			sourceTree = "<group>";
+		};
+		1B5DE96E1F57FB64008D2799 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				1B5DE96F1F57FEFF008D2799 /* UIBarButtonItem.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
 		1B6304161F56BFCB00E426D7 /* widget */ = {
 			isa = PBXGroup;
 			children = (
+				1B5DE96E1F57FB64008D2799 /* extension */,
 				1B6304171F56C00E00E426D7 /* CustomTabBarItem.swift */,
 			);
 			name = widget;
@@ -125,6 +169,7 @@
 				1BA0E0C01F56A4B200126085 /* Home */,
 				1BA0E0BF1F56A4B200126085 /* Follow */,
 				1BA0E0C11F56A4B200126085 /* Live */,
+				1B5DE96D1F57F5B3008D2799 /* Tools */,
 				1BA0E0C31F56A4B200126085 /* Profile */,
 			);
 			name = Classes;
@@ -143,7 +188,9 @@
 		1BA0E0C01F56A4B200126085 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1BA0E0C41F56B52100126085 /* Home.storyboard */,
+				1B5DE9661F57E091008D2799 /* Controller */,
+				1B5DE9681F57E091008D2799 /* Model */,
+				1B5DE9691F57E091008D2799 /* View */,
 			);
 			name = Home;
 			path = douyuDemo/Classes/Home;
@@ -287,11 +334,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B5DE96C1F57E1E3008D2799 /* Home.storyboard in Resources */,
 				1BA0E0BA1F56967700126085 /* Main.storyboard in Resources */,
 				1BA0E0951F5689F600126085 /* LaunchScreen.storyboard in Resources */,
 				1BA0E0921F5689F600126085 /* Assets.xcassets in Resources */,
 				1BA0E0C71F56B54E00126085 /* Live.storyboard in Resources */,
-				1BA0E0C51F56B52100126085 /* Home.storyboard in Resources */,
 				1BA0E0CB1F56B5A700126085 /* Profile.storyboard in Resources */,
 				1BA0E0C91F56B57300126085 /* Follow.storyboard in Resources */,
 			);
@@ -318,6 +365,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B5DE96A1F57E091008D2799 /* HomeViewController.swift in Sources */,
+				1B5DE9701F57FEFF008D2799 /* UIBarButtonItem.swift in Sources */,
 				1BA0E08D1F5689F600126085 /* MainViewController.swift in Sources */,
 				1B6304181F56C00E00E426D7 /* CustomTabBarItem.swift in Sources */,
 				1BA0E08B1F5689F600126085 /* AppDelegate.swift in Sources */,

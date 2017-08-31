@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="m5f-7B-qxc">
             <objects>
-                <viewController id="zZg-vO-rIa" sceneMemberID="viewController">
+                <viewController id="zZg-vO-rIa" customClass="HomeViewController" customModule="douyuDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kMd-IF-nZd"/>
                         <viewControllerLayoutGuide type="bottom" id="59e-cw-SfL"/>
@@ -43,7 +43,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="zZg-vO-rIa" kind="relationship" relationship="rootViewController" id="73P-Aa-6Pu"/>
+                        <segue destination="zZg-vO-rIa" kind="relationship" relationship="rootViewController" id="pCg-iG-OR1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9y-5M-ftD" userLabel="First Responder" sceneMemberID="firstResponder"/>
