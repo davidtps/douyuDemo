@@ -8,13 +8,25 @@
 
 import UIKit
 extension UIBarButtonItem{
-   class  func createItem(normal:String,highlight:String,size:CGSize) ->  UIBarButtonItem {
+    /*
+     // MARK:- 类方法的形式扩展
+     class  func createItem(normal:String,highlight:String,size:CGSize) ->  UIBarButtonItem {
+     let btn = UIButton();
+     
+     btn.setImage(UIImage(named:normal), for: UIControlState.normal)
+     btn.setImage(UIImage(named:highlight), for: UIControlState.highlighted)
+     btn.frame = CGRect(origin: CGPoint.zero, size: size)
+     
+     return UIBarButtonItem(customView:btn);
+     }
+     */
+    //便利构造函数，1.	convenience开头 2.在构造函数中必须明确的调用已存在的构造函数（必须用self来调用）
+    convenience init(normal:String,highlight:String,size:CGSize) {
         let btn = UIButton();
-    
+        
         btn.setImage(UIImage(named:normal), for: UIControlState.normal)
         btn.setImage(UIImage(named:highlight), for: UIControlState.highlighted)
         btn.frame = CGRect(origin: CGPoint.zero, size: size)
-    
-        return UIBarButtonItem(customView:btn);
+        self.init(customView:btn)
     }
 }
