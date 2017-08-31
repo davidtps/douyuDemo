@@ -1,4 +1,4 @@
-//
+
 //  UIBarButtonItem.swift
 //  douyuDemo
 //
@@ -21,12 +21,18 @@ extension UIBarButtonItem{
      }
      */
     //便利构造函数，1.	convenience开头 2.在构造函数中必须明确的调用已存在的构造函数（必须用self来调用）
-    convenience init(normal:String,highlight:String,size:CGSize) {
+    convenience init(normal:String,highlight:String="",size:CGSize=CGSize.zero) {
         let btn = UIButton();
         
         btn.setImage(UIImage(named:normal), for: UIControlState.normal)
-        btn.setImage(UIImage(named:highlight), for: UIControlState.highlighted)
-        btn.frame = CGRect(origin: CGPoint.zero, size: size)
+        if(highlight != ""){
+            btn.setImage(UIImage(named:highlight), for: UIControlState.highlighted)
+        }
+        if(size==CGSize.zero){
+            btn.sizeToFit();
+        }else{
+            btn.frame = CGRect(origin: CGPoint.zero, size: size)
+        }
         self.init(customView:btn)
     }
 }

@@ -26,10 +26,10 @@ extension HomeViewController{
     
     func navigationInit()  {
         // 左侧，设置logo
-        let logo = UIButton();
-        logo.setImage(UIImage(named:"logo"), for: UIControlState.normal)
-        logo.sizeToFit()
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: logo)
+//        let logo = UIButton();
+//        logo.setImage(UIImage(named:"logo"), for: UIControlState.normal)
+//        logo.sizeToFit()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(normal: "logo")
         
         //设置右侧 item
         let size = CGSize(width:40,height:40);
