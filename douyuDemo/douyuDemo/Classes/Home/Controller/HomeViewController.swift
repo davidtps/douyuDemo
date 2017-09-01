@@ -7,13 +7,19 @@
 //
 
 import UIKit
-
+private let mTitleViewH:CGFloat = 40
 class HomeViewController: UIViewController {
+    fileprivate lazy var  pageTitleView:PageTitleView = {
+        let titleFrame = CGRect(x: 0, y: mStatusBarH+mNavigationBarH, width: mScreenW, height: mTitleViewH)
+        let titles  = ["推荐","游戏","娱乐","趣玩"]
+        let titleview = PageTitleView(frame: titleFrame, titles: titles)
+//        titleview.backgroundColor = UIColor.blue
+        return titleview
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        
     }
     
     
@@ -21,14 +27,19 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController{
     fileprivate func initUI(){
+        //scrollview 不需要内边距
+        automaticallyAdjustsScrollViewInsets = false
+        // MARK:- 初始化导航栏UI
         navigationInit();
+        // MARK:- 添加pageTitle
+        view.addSubview(pageTitleView)
     }
     
     func navigationInit()  {
         // 左侧，设置logo
-//        let logo = UIButton();
-//        logo.setImage(UIImage(named:"logo"), for: UIControlState.normal)
-//        logo.sizeToFit()
+        //        let logo = UIButton();
+        //        logo.setImage(UIImage(named:"logo"), for: UIControlState.normal)
+        //        logo.sizeToFit()
         navigationItem.leftBarButtonItem = UIBarButtonItem(normal: "logo")
         
         //设置右侧 item
