@@ -48,7 +48,7 @@ extension PageTitleView{
         //添加 scrollview到页面
         addSubview(scrollView)
         scrollView.frame = bounds
-
+        
         //初始化，添加页签
         initTitleLabels();
         
@@ -57,6 +57,10 @@ extension PageTitleView{
     }
     
     fileprivate func initTitleLabels(){
+        let labelW:CGFloat = frame.width / CGFloat(titles.count)
+        let labelH:CGFloat = frame.height - mScrollLineH;
+        let labelY:CGFloat = 0
+        
         for (index,title) in titles.enumerated() {
             //label 声明
             let label  = UILabel()
@@ -68,10 +72,9 @@ extension PageTitleView{
             label.textAlignment = .center
             
             //设置label 的frame
-            let labelW:CGFloat = frame.width / CGFloat(titles.count)
-            let labelH:CGFloat = frame.height - mScrollLineH;
+            
             let labelX:CGFloat = labelW * CGFloat(index)
-            let labelY:CGFloat = 0
+            
             label.frame = CGRect(x: labelX, y: labelY, width: labelW, height: labelH)
             
             scrollView.addSubview(label)
