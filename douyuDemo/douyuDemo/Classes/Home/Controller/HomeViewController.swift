@@ -14,11 +14,10 @@ class HomeViewController: UIViewController {
         let titleFrame = CGRect(x: 0, y: mStatusBarH+mNavigationBarH, width: mScreenW, height: mTitleViewH)
         let titles  = ["推荐","游戏","娱乐","趣玩"]
         let titleview = PageTitleView(frame: titleFrame, titles: titles)
-//        titleview.backgroundColor = UIColor.blue
         return titleview
     }()
     
-    fileprivate lazy var pageContentView:PageContentView = {
+    fileprivate lazy var pageContentView:PageContentView = {[weak self] in
         let contentViewH = mScreenH - (mStatusBarH+mNavigationBarH+mTitleViewH)
         let contentFrame = CGRect(x: 0, y: mStatusBarH+mNavigationBarH+mTitleViewH, width: mScreenW, height: contentViewH)
         
