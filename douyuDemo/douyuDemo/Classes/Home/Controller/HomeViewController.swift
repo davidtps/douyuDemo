@@ -9,12 +9,28 @@
 import UIKit
 private let mTitleViewH:CGFloat = 40
 class HomeViewController: UIViewController {
+    // MARK:- 懒加载 titleView  contentView
     fileprivate lazy var  pageTitleView:PageTitleView = {
         let titleFrame = CGRect(x: 0, y: mStatusBarH+mNavigationBarH, width: mScreenW, height: mTitleViewH)
         let titles  = ["推荐","游戏","娱乐","趣玩"]
         let titleview = PageTitleView(frame: titleFrame, titles: titles)
 //        titleview.backgroundColor = UIColor.blue
         return titleview
+    }()
+    
+    fileprivate lazy var pageContentView:PageContentView = {
+        let contentViewH = mScreenH - (mStatusBarH+mNavigationBarH+mTitleViewH)
+        let contentFrame = CGRect(x: 0, y: mStatusBarH+mNavigationBarH+mTitleViewH, width: mScreenW, height: contentViewH)
+        
+        var childVcs:[UIViewController] = [UIViewController]()
+        for _ in 0..<4{
+            let vc = UIViewController()
+            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
+            childVcs.append(vc)
+        }
+        
+        let contentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentVc: self)
+        return contentView
     }()
     
     override func viewDidLoad() {
@@ -33,9 +49,12 @@ extension HomeViewController{
         navigationInit();
         // MARK:- 添加pageTitle
         view.addSubview(pageTitleView)
+        // MARK:- 添加contentView
+        view.addSubview(pageContentView)
     }
     
     func navigationInit()  {
+      
         // 左侧，设置logo
         //        let logo = UIButton();
         //        logo.setImage(UIImage(named:"logo"), for: UIControlState.normal)

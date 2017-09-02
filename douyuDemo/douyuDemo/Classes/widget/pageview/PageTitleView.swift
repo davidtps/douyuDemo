@@ -93,10 +93,10 @@ extension PageTitleView{
         scrollView.addSubview(bottomLine)
         
         //添加 scrollLine
-        let firstLabel = labels.first;
-        firstLabel?.textColor = UIColor.orange
+        guard let firstLabel = labels.first else {return}
+        firstLabel.textColor = UIColor.orange
         scrollView.addSubview(scrollLine)
-        scrollLine.frame = CGRect(x: (firstLabel?.frame.origin.x)!, y: frame.height - mScrollLineH, width: (firstLabel?.frame.width)!, height: mScrollLineH)
+        scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - mScrollLineH, width: firstLabel.frame.width, height: mScrollLineH)
         
     }
     

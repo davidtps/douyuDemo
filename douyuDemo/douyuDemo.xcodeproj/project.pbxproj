@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B3962FA1F595CEC00857632 /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3962F91F595CEC00857632 /* PageContentView.swift */; };
+		1B3962FC1F59856700857632 /* UIColor_ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3962FB1F59856700857632 /* UIColor_ext.swift */; };
 		1B5DE96A1F57E091008D2799 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DE9671F57E091008D2799 /* HomeViewController.swift */; };
 		1B5DE96C1F57E1E3008D2799 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B5DE96B1F57E1E3008D2799 /* Home.storyboard */; };
 		1B5DE9701F57FEFF008D2799 /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DE96F1F57FEFF008D2799 /* UIBarButtonItem.swift */; };
 		1B5DE9731F584044008D2799 /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DE9721F584044008D2799 /* PageTitleView.swift */; };
-		1B5DE9751F5843E9008D2799 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DE9741F5843E9008D2799 /* Constants.swift */; };
 		1B6304181F56C00E00E426D7 /* CustomTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6304171F56C00E00E426D7 /* CustomTabBarItem.swift */; };
+		1B8068021F5A9B390001D663 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8068011F5A9B390001D663 /* Constants.swift */; };
+		1B8068041F5A9BDE0001D663 /* CommUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8068031F5A9BDE0001D663 /* CommUtils.swift */; };
 		1BA0E08B1F5689F600126085 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0E08A1F5689F600126085 /* AppDelegate.swift */; };
 		1BA0E08D1F5689F600126085 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0E08C1F5689F600126085 /* MainViewController.swift */; };
 		1BA0E0921F5689F600126085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0E0911F5689F600126085 /* Assets.xcassets */; };
@@ -41,12 +44,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B3962F91F595CEC00857632 /* PageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
+		1B3962FB1F59856700857632 /* UIColor_ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_ext.swift; sourceTree = "<group>"; };
 		1B5DE9671F57E091008D2799 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1B5DE96B1F57E1E3008D2799 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		1B5DE96F1F57FEFF008D2799 /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
 		1B5DE9721F584044008D2799 /* PageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
-		1B5DE9741F5843E9008D2799 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = douyuDemo/Classes/widget/pageview/Constants.swift; sourceTree = SOURCE_ROOT; };
 		1B6304171F56C00E00E426D7 /* CustomTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarItem.swift; sourceTree = "<group>"; };
+		1B8068011F5A9B390001D663 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1B8068031F5A9BDE0001D663 /* CommUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommUtils.swift; sourceTree = "<group>"; };
 		1BA0E0871F5689F600126085 /* douyuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = douyuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA0E08A1F5689F600126085 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BA0E08C1F5689F600126085 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../../MainViewController.swift; sourceTree = "<group>"; };
@@ -109,19 +115,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1B5DE96D1F57F5B3008D2799 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				1B5DE9741F5843E9008D2799 /* Constants.swift */,
-			);
-			name = Tools;
-			path = ../Classes/Profile/Tools;
-			sourceTree = "<group>";
-		};
 		1B5DE96E1F57FB64008D2799 /* extension */ = {
 			isa = PBXGroup;
 			children = (
 				1B5DE96F1F57FEFF008D2799 /* UIBarButtonItem.swift */,
+				1B3962FB1F59856700857632 /* UIColor_ext.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -130,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				1B5DE9721F584044008D2799 /* PageTitleView.swift */,
+				1B3962F91F595CEC00857632 /* PageContentView.swift */,
 			);
 			path = pageview;
 			sourceTree = "<group>";
@@ -143,6 +142,16 @@
 			);
 			name = widget;
 			path = douyuDemo/Classes/widget;
+			sourceTree = SOURCE_ROOT;
+		};
+		1B8067FE1F5A9A6A0001D663 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				1B8068011F5A9B390001D663 /* Constants.swift */,
+				1B8068031F5A9BDE0001D663 /* CommUtils.swift */,
+			);
+			name = Tools;
+			path = douyuDemo/Classes/Tools;
 			sourceTree = SOURCE_ROOT;
 		};
 		1BA0E07E1F5689F600126085 = {
@@ -182,7 +191,7 @@
 				1BA0E0C01F56A4B200126085 /* Home */,
 				1BA0E0BF1F56A4B200126085 /* Follow */,
 				1BA0E0C11F56A4B200126085 /* Live */,
-				1B5DE96D1F57F5B3008D2799 /* Tools */,
+				1B8067FE1F5A9A6A0001D663 /* Tools */,
 				1B6304161F56BFCB00E426D7 /* widget */,
 				1BA0E0C31F56A4B200126085 /* Profile */,
 			);
@@ -380,10 +389,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B5DE9731F584044008D2799 /* PageTitleView.swift in Sources */,
+				1B8068021F5A9B390001D663 /* Constants.swift in Sources */,
 				1B5DE96A1F57E091008D2799 /* HomeViewController.swift in Sources */,
 				1B5DE9701F57FEFF008D2799 /* UIBarButtonItem.swift in Sources */,
+				1B3962FA1F595CEC00857632 /* PageContentView.swift in Sources */,
+				1B8068041F5A9BDE0001D663 /* CommUtils.swift in Sources */,
 				1BA0E08D1F5689F600126085 /* MainViewController.swift in Sources */,
-				1B5DE9751F5843E9008D2799 /* Constants.swift in Sources */,
+				1B3962FC1F59856700857632 /* UIColor_ext.swift in Sources */,
 				1B6304181F56C00E00E426D7 /* CustomTabBarItem.swift in Sources */,
 				1BA0E08B1F5689F600126085 /* AppDelegate.swift in Sources */,
 			);
@@ -536,12 +548,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RU6PN5PBNX;
 				INFOPLIST_FILE = douyuDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tps.douyuDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -550,12 +564,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = RU6PN5PBNX;
 				INFOPLIST_FILE = douyuDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tps.douyuDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
