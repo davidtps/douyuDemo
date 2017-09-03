@@ -11,7 +11,7 @@ import UIKit
 func printLog<T>(_ message:T,file:String=#file,method:String = #function ,line:Int  = #line){
     //什么语法？？
     #if DEBUG
-    print("文件名:\((file as NSString).lastPathComponent)[行数:\(line)],方法名:\(method) 输出信息:\(message)")
+    print("文件名:\((file as NSString).lastPathComponent)[行数:\(line)],方法名:\(method) outputInfo:\(message)")
     #endif
 }
 

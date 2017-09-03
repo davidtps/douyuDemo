@@ -61,6 +61,16 @@ extension PageContentView{
         
         
     }
+    
+   }
+
+// MARK:- 对外调用的方法
+extension PageContentView{
+    func setSelectedPage(index :Int){
+        let offectX = CGFloat(index) * frame.width
+        collectionView.setContentOffset( CGPoint.init(x: offectX, y: 0), animated: true)
+    }
+
 }
 
 // MARK:- 遵守UICollectionViewDataSource

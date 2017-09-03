@@ -10,12 +10,13 @@ import UIKit
 private let mTitleViewH:CGFloat = 40
 class HomeViewController: UIViewController {
     // MARK:- 懒加载 titleView  contentView
-    fileprivate lazy var  pageTitleView:PageTitleView = {
+    fileprivate lazy var  pageTitleView:PageTitleView = {[weak self] in  //避免循环引用问题
         let titleFrame = CGRect(x: 0, y: mStatusBarH+mNavigationBarH, width: mScreenW, height: mTitleViewH)
         let titles  = ["推荐","游戏","娱乐","趣玩"]
         let titleview = PageTitleView(frame: titleFrame, titles: titles)
+        titleview.delegate = self
         return titleview
-    }()
+        }()
     
     fileprivate lazy var pageContentView:PageContentView = {[weak self] in
         let contentViewH = mScreenH - (mStatusBarH+mNavigationBarH+mTitleViewH)
@@ -30,7 +31,7 @@ class HomeViewController: UIViewController {
         
         let contentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentVc: self)
         return contentView
-    }()
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,12 @@ class HomeViewController: UIViewController {
     }
     
     
+}
+// MARK:- 实现pageTitleVeiw 的代理协议，通知pageContentView 做出切换
+extension HomeViewController:PageTitleViewDelegate{
+    func pageTitleViewClick(selectedIndex index: Int) {
+        pageContentView.setSelectedPage(index: index)
+    }
 }
 
 extension HomeViewController{
@@ -53,7 +60,7 @@ extension HomeViewController{
     }
     
     func navigationInit()  {
-      
+        
         // 左侧，设置logo
         //        let logo = UIButton();
         //        logo.setImage(UIImage(named:"logo"), for: UIControlState.normal)
