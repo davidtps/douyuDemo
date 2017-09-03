@@ -12,9 +12,10 @@ private let contentCellId:String  = "ContentCellId"
 
 class PageContentView:UIView{
     // MARK:- 属性
-    
+    fileprivate var startOffsetX:CGFloat = 0
     fileprivate var childVcs:[UIViewController]
     fileprivate weak var parentVc:UIViewController?
+    weak var delegate : PageContentViewDelegate?
     // MARK:- 懒加载属性
     lazy var collectionView : UICollectionView = {[weak self] in
         // 创建 collectionView 布局
@@ -30,10 +31,11 @@ class PageContentView:UIView{
         collectView.showsHorizontalScrollIndicator = false
         collectView.bounces = false
         collectView.dataSource = self
+        collectView.delegate = self  //必须要有的，相当于事件注册！！
         collectView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: contentCellId)
         
         return collectView
-    }()
+        }()
     
     
     init(frame: CGRect,childVcs:[UIViewController],parentVc:UIViewController?) {
@@ -48,6 +50,10 @@ class PageContentView:UIView{
         fatalError("init(coder:) has not been implemented")
     }
 }
+protocol PageContentViewDelegate : class{
+    func pageScrollEvent(pageContentView : PageContentView,progress : CGFloat ,sourceIndex: Int,targetIndex:Int)
+}
+
 // MARK:- 初始化UI
 extension PageContentView{
     func initUI()  {
@@ -62,7 +68,7 @@ extension PageContentView{
         
     }
     
-   }
+}
 
 // MARK:- 对外调用的方法
 extension PageContentView{
@@ -70,7 +76,52 @@ extension PageContentView{
         let offectX = CGFloat(index) * frame.width
         collectionView.setContentOffset( CGPoint.init(x: offectX, y: 0), animated: true)
     }
+    
+}
 
+// MARK:- 滑动事件
+extension PageContentView : UICollectionViewDelegate{
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffsetX = scrollView.contentOffset.x
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var progress : CGFloat = 0
+        var sourceIndex : Int = 0
+        var targetIndex : Int = 0
+        
+        let currOffsetX = scrollView.contentOffset.x
+        let scrollviewW = scrollView.bounds.width
+        
+        printLog("scrollviewW \(scrollviewW)  \(frame.width)" )
+        if(currOffsetX > startOffsetX){//左滑
+            //progress 值
+            progress = currOffsetX/scrollviewW - floor(currOffsetX/scrollviewW)
+            //sourceIndex 值
+            sourceIndex = Int(currOffsetX/scrollviewW)
+            //targetIndex 值
+            targetIndex = sourceIndex + 1
+            
+            if targetIndex >= childVcs.count{
+                targetIndex = childVcs.count - 1
+            }
+            
+        }else{//右滑
+            //progress 值
+            progress = 1 - (currOffsetX/frame.width - floor(currOffsetX/frame.width))
+            //targetIndex 值
+            targetIndex = Int(currOffsetX/scrollviewW)
+            //sourceIndex 值
+            sourceIndex = targetIndex + 1
+            
+            if sourceIndex >= childVcs.count{
+                sourceIndex = childVcs.count - 1
+            }
+
+        }
+        delegate?.pageScrollEvent(pageContentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
 }
 
 // MARK:- 遵守UICollectionViewDataSource
@@ -84,7 +135,7 @@ extension PageContentView : UICollectionViewDataSource{
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: contentCellId, for: indexPath)
         
         for view in cell.contentView.subviews{
-           view.removeFromSuperview()
+            view.removeFromSuperview()
         }
         
         //给cell 添加内容

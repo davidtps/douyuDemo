@@ -11,7 +11,7 @@ import UIKit
 class PageTitleView: UIView {
     fileprivate var currLabelIndex = 0;
     fileprivate var mScrollLineH:CGFloat = 2;
-    internal var delegate:PageTitleViewDelegate?
+    internal weak var delegate:PageTitleViewDelegate?
     
     //声明变量 声明数组
     fileprivate var titles:[String]
@@ -46,7 +46,7 @@ class PageTitleView: UIView {
     
 }
 
-protocol PageTitleViewDelegate {
+protocol PageTitleViewDelegate : class{
     func pageTitleViewClick(selectedIndex index : Int)
     
 }
@@ -116,6 +116,13 @@ extension PageTitleView{
     
     
     
+}
+
+// MARK:- 对外暴露的方法
+extension PageTitleView{
+    internal func setTitleViewChange(progress:CGFloat,sourceIndex :Int,targetIndex:Int){
+        
+    }
 }
 
 // MARK:-  声明label点击事件

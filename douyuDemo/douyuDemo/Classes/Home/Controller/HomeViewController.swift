@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         }
         
         let contentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentVc: self)
+        contentView.delegate = self
         return contentView
         }()
     
@@ -44,6 +45,13 @@ class HomeViewController: UIViewController {
 extension HomeViewController:PageTitleViewDelegate{
     func pageTitleViewClick(selectedIndex index: Int) {
         pageContentView.setSelectedPage(index: index)
+    }
+    
+}
+// MARK:- 实现pageContentView 的代理协议
+extension HomeViewController :PageContentViewDelegate{
+    func pageScrollEvent(pageContentView: PageContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        pageTitleView.setTitleViewChange(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }
 
