@@ -16,6 +16,7 @@ class PageContentView:UIView{
     fileprivate var childVcs:[UIViewController]
     fileprivate weak var parentVc:UIViewController?
     weak var delegate : PageContentViewDelegate?
+    fileprivate var isForbidScrollDelegate:Bool = false;//是否禁止 滑动代理通知
     // MARK:- 懒加载属性
     lazy var collectionView : UICollectionView = {[weak self] in
         // 创建 collectionView 布局
@@ -73,6 +74,7 @@ extension PageContentView{
 // MARK:- 对外调用的方法
 extension PageContentView{
     func setSelectedPage(index :Int){
+        isForbidScrollDelegate = true;
         let offectX = CGFloat(index) * frame.width
         collectionView.setContentOffset( CGPoint.init(x: offectX, y: 0), animated: true)
     }
@@ -83,10 +85,15 @@ extension PageContentView{
 extension PageContentView : UICollectionViewDelegate{
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isForbidScrollDelegate = false;
         startOffsetX = scrollView.contentOffset.x
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //判断是否禁止代理通知
+        if isForbidScrollDelegate {
+            return;
+        }
         var progress : CGFloat = 0
         var sourceIndex : Int = 0
         var targetIndex : Int = 0
@@ -94,7 +101,6 @@ extension PageContentView : UICollectionViewDelegate{
         let currOffsetX = scrollView.contentOffset.x
         let scrollviewW = scrollView.bounds.width
         
-        printLog("scrollviewW \(scrollviewW)  \(frame.width)" )
         if(currOffsetX > startOffsetX){//左滑
             //progress 值
             progress = currOffsetX/scrollviewW - floor(currOffsetX/scrollviewW)

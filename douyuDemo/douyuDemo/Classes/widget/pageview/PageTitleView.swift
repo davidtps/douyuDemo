@@ -12,6 +12,9 @@ class PageTitleView: UIView {
     fileprivate var currLabelIndex = 0;
     fileprivate var mScrollLineH:CGFloat = 2;
     internal weak var delegate:PageTitleViewDelegate?
+    fileprivate var mNormalColor:(CGFloat,CGFloat,CGFloat) = (0,0,0)
+    fileprivate var mSelectColor:(CGFloat,CGFloat,CGFloat) = (250,128,0)
+
     
     //声明变量 声明数组
     fileprivate var titles:[String]
@@ -77,7 +80,7 @@ extension PageTitleView{
             label.text = title
             label.tag = index
             label.font = UIFont.systemFont(ofSize: 16)
-            label.textColor = UIColor.black
+            label.textColor = UIColor(r: mNormalColor.0, g: mNormalColor.1, b: mNormalColor.2)
             label.textAlignment = .center
             
             //设置label 的frame
@@ -112,6 +115,7 @@ extension PageTitleView{
         scrollView.addSubview(scrollLine)
         scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - mScrollLineH, width: firstLabel.frame.width, height: mScrollLineH)
         
+        
     }
     
     
@@ -121,7 +125,24 @@ extension PageTitleView{
 // MARK:- 对外暴露的方法
 extension PageTitleView{
     internal func setTitleViewChange(progress:CGFloat,sourceIndex :Int,targetIndex:Int){
+        //获取 label
+        let sourceLabel = labels[sourceIndex]
+        let targetLabel = labels[targetIndex]
+        //处理滑块滑动
+        let moveTotalX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+        let moveX = moveTotalX * progress
+        scrollLine.frame.origin.x = sourceLabel.frame.origin.x + moveX
         
+        //处理label的颜色渐变(复杂)
+        //1.颜色范围
+        let colorRange = (mSelectColor.0-mNormalColor.0,mSelectColor.1-mNormalColor.1,mSelectColor.2-mNormalColor.2)
+        //2.source Label 渐变
+        sourceLabel.textColor = UIColor(r: mSelectColor.0 - progress*colorRange.0, g: mSelectColor.1 - progress*colorRange.1, b: mSelectColor.2 - progress*colorRange.2)
+        //3.target Label 渐变
+        targetLabel.textColor = UIColor(r: mNormalColor.0 + progress*colorRange.0, g: mNormalColor.1 + progress*colorRange.1, b: mNormalColor.2 + progress*colorRange.2)
+        
+        //设置当前的页面下标
+        currLabelIndex = targetIndex;
     }
 }
 
@@ -139,8 +160,8 @@ extension PageTitleView{
         currLabelIndex = currLabel.tag
         
         // label 文字颜色 高亮
-        currLabel.textColor = UIColor.orange
-        oldLabel.textColor = UIColor.black
+        currLabel.textColor = UIColor(r: mSelectColor.0, g: mSelectColor.1, b: mSelectColor.2)
+        oldLabel.textColor = UIColor(r: mNormalColor.0, g: mNormalColor.1, b: mNormalColor.2)
         
         //底部指示器，滑动到选中的label位置
         let scrollLineNewX = CGFloat(currLabelIndex) * oldLabel.frame.width
