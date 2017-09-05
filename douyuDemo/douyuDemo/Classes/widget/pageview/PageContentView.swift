@@ -88,7 +88,7 @@ extension PageContentView : UICollectionViewDelegate{
         isForbidScrollDelegate = false;
         startOffsetX = scrollView.contentOffset.x
     }
-
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //判断是否禁止代理通知
         if isForbidScrollDelegate {
@@ -100,7 +100,6 @@ extension PageContentView : UICollectionViewDelegate{
         
         let currOffsetX = scrollView.contentOffset.x
         let scrollviewW = scrollView.bounds.width
-        
         if(currOffsetX > startOffsetX){//左滑
             //progress 值
             progress = currOffsetX/scrollviewW - floor(currOffsetX/scrollviewW)
@@ -113,9 +112,16 @@ extension PageContentView : UICollectionViewDelegate{
                 targetIndex = childVcs.count - 1
             }
             
+            //如果完全划过后
+            if(progress == 0){
+                progress = 1;
+                targetIndex = sourceIndex;
+                sourceIndex = sourceIndex - 1;
+            }
+            
         }else{//右滑
             //progress 值
-            progress = 1 - (currOffsetX/frame.width - floor(currOffsetX/frame.width))
+            progress = 1 - (currOffsetX/scrollviewW - floor(currOffsetX/scrollviewW))
             //targetIndex 值
             targetIndex = Int(currOffsetX/scrollviewW)
             //sourceIndex 值
@@ -124,7 +130,7 @@ extension PageContentView : UICollectionViewDelegate{
             if sourceIndex >= childVcs.count{
                 sourceIndex = childVcs.count - 1
             }
-
+            
         }
         delegate?.pageScrollEvent(pageContentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
