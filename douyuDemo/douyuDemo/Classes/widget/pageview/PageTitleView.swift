@@ -140,7 +140,7 @@ extension PageTitleView{
         sourceLabel.textColor = UIColor(r: mSelectColor.0 - progress*colorRange.0, g: mSelectColor.1 - progress*colorRange.1, b: mSelectColor.2 - progress*colorRange.2)
         //3.target Label 渐变
         targetLabel.textColor = UIColor(r: mNormalColor.0 + progress*colorRange.0, g: mNormalColor.1 + progress*colorRange.1, b: mNormalColor.2 + progress*colorRange.2)
-        printLog("progress: \(progress) target:\(targetIndex) source:\(sourceIndex)")
+//        printLog("progress: \(progress) target:\(targetIndex) source:\(sourceIndex)")
         //设置当前的页面下标
         currLabelIndex = targetIndex;
     }
